@@ -1,12 +1,12 @@
-const Users = require("../model/users.models");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const models = require('../models');
 require('dotenv').config();
 
 class AuthServices {
   static async register(user) {
     try {
-      const result = await Users.create(user);
+      const result = await models.users.create(user);
       return result
     } catch (error) {
       throw error;
@@ -16,7 +16,7 @@ class AuthServices {
   static async login(credentials) {
     try {
       const { email, password } = credentials;
-      const user = await Users.findOne({ where: { email } });
+      const user = await models.users.findOne({ where: { email } });
       
       if (user) {
         const isValid = bcrypt.compareSync(password, user.password);
