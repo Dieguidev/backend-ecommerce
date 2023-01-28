@@ -34,10 +34,10 @@ class productsInCart extends Sequelize.Model {
       allowNull: false
     },
     price: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DOUBLE,
       allowNull: false
     },
-    status: {
+    purchaseCompleted: {
       type: DataTypes.BOOLEAN,
       allowNull: true,
       defaultValue: false

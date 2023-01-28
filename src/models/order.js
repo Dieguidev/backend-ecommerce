@@ -14,7 +14,7 @@ class order extends Sequelize.Model {
       primaryKey: true
     },
     total_price: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DOUBLE,
       allowNull: false
     },
     user_id: {
@@ -25,7 +25,7 @@ class order extends Sequelize.Model {
         key: 'id'
       }
     },
-    completed: {
+    purchase_delivered: {
       type: DataTypes.BOOLEAN,
       allowNull: true,
       defaultValue: false

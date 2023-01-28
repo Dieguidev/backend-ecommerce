@@ -35,11 +35,11 @@ class productInOrder extends Sequelize.Model {
       defaultValue: 0
     },
     price: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DOUBLE,
       allowNull: true,
       defaultValue: 0
     },
-    status: {
+    purchase_processed: {
       type: DataTypes.BOOLEAN,
       allowNull: true,
       defaultValue: false

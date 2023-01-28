@@ -10,8 +10,8 @@ function initModels(sequelize) {
   const users = _users(sequelize, DataTypes);
   const cart = _cart(sequelize, DataTypes);
   const order = _order(sequelize, DataTypes);
-  const productInOrder = _productInOrder(sequelize, DataTypes);
   const products = _products(sequelize, DataTypes);
+  const productInOrder = _productInOrder(sequelize, DataTypes);
   const productsInCart = _productsInCart(sequelize, DataTypes);
 
   productsInCart.belongsTo(cart, { as: "cart", foreignKey: "cart_id"});
@@ -26,15 +26,15 @@ function initModels(sequelize) {
   users.hasMany(cart, { as: "carts", foreignKey: "user_id"});
   order.belongsTo(users, { as: "user", foreignKey: "user_id"});
   users.hasMany(order, { as: "orders", foreignKey: "user_id"});
-  products.belongsTo(users, { as: "user", foreignKey: "user_id"});
-  users.hasMany(products, { as: "products", foreignKey: "user_id"});
+  products.belongsTo(users, { as: "user", foreignKey: "seller_id"});
+  users.hasMany(products, { as: "products", foreignKey: "seller_id"});
 
   return {
     users,
     cart,
     order,
-    productInOrder,
     products,
+    productInOrder,
     productsInCart,
   };
 }

@@ -31,7 +31,7 @@ class products extends Sequelize.Model {
       allowNull: true,
       defaultValue: false
     },
-    user_id: {
+    seller_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
