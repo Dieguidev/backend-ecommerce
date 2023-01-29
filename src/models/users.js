@@ -32,12 +32,12 @@ module.exports = (sequelize, DataTypes) => {
  *     loginResponse:
  *       type: object
  *       properties:
- *         username:
- *           type: string
- *           example: Diego
  *         id:
  *           type: int
  *           example: 12
+ *         username:
+ *           type: string
+ *           example: Diego
  *         email:
  *           type: string
  *           example: diegogaray@gmail.com

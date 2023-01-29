@@ -3,6 +3,24 @@ module.exports = (sequelize, DataTypes) => {
   return products.init(sequelize, DataTypes);
 }
 
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     newProduct:
+ *       type: object
+ *       properties:
+ *         name:
+ *           type: string
+ *           example: TV
+ *         price:
+ *           type: int
+ *           example: 200
+ *         available_qty:
+ *           type: int
+ *           example: 2
+ */
+
 class products extends Sequelize.Model {
   static init(sequelize, DataTypes) {
   return super.init({
@@ -24,12 +42,12 @@ class products extends Sequelize.Model {
     available_qty: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      defaultValue: 0
+      defaultValue: 1
     },
-    status: {
+    is_available: {
       type: DataTypes.BOOLEAN,
       allowNull: true,
-      defaultValue: false
+      defaultValue: true
     },
     seller_id: {
       type: DataTypes.INTEGER,

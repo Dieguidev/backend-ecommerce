@@ -22,7 +22,7 @@ const register = async (req, res) => {
   }
 }
 
-const login = async (req, res) => {
+const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     if (!email) {
@@ -41,11 +41,10 @@ const login = async (req, res) => {
 
     if (result.isValid) {
       const { username, id, email } = result.user;
-      const userData = { username, id, email };
+      const userData = { id, username, email };
       const token = AuthServices.genToken(userData);
-      result.user.token = token;
-      console.log(result);
-      res.json(result.user);
+      userData.token = token;
+      res.json(userData);
     } else {
       res.jsopn(400).json({ message: 'User not found' })
     }

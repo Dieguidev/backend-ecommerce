@@ -26,7 +26,7 @@ function initModels(sequelize) {
   users.hasMany(cart, { as: "carts", foreignKey: "user_id"});
   order.belongsTo(users, { as: "user", foreignKey: "user_id"});
   users.hasMany(order, { as: "orders", foreignKey: "user_id"});
-  products.belongsTo(users, { as: "user", foreignKey: "seller_id"});
+  products.belongsTo(users, { as: "seller", foreignKey: "seller_id"});
   users.hasMany(products, { as: "products", foreignKey: "seller_id"});
 
   return {
