@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { createProduct, getProductsAvailable } = require('../controllers/products.controllers');
+const { createProduct, getProductsAvailable, addProductToCart } = require('../controllers/products.controllers');
 
 const router = Router();
 
@@ -84,6 +84,7 @@ const router = Router();
  *                   type: string
  *                   example: null
  */
+
 
 router.post('/:id', createProduct)
 router.get('/availables', getProductsAvailable)

@@ -19,10 +19,17 @@ class ProductsServices {
         model: models.users,
         as: 'seller',
         attributes: ['username']
-        
       }
-
       })
+      return result
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  static async addProductToCart(newProductInCart){
+    try {
+      const result =await models.product_in_order.create(newProductInCart)
       return result
     } catch (error) {
       throw error;
