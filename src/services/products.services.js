@@ -13,13 +13,13 @@ class ProductsServices {
   static async getProductsAvailable() {
     try {
       const result = await models.products.findAll({
-        where: {is_available: true},
-        attributes: {exclude:['seller_id']},
+        where: { is_available: true },
+        attributes: { exclude: ['seller_id'] },
         include: {
-        model: models.users,
-        as: 'seller',
-        attributes: ['username']
-      }
+          model: models.users,
+          as: 'seller',
+          attributes: ['username']
+        }
       })
       return result
     } catch (error) {
@@ -27,9 +27,9 @@ class ProductsServices {
     }
   }
 
-  static async addProductToCart(newProductInCart){
+  static async addProductToCart(newProductInCart) {
     try {
-      const result =await models.product_in_order.create(newProductInCart)
+      const result = await models.product_in_order.create(newProductInCart)
       return result
     } catch (error) {
       throw error;

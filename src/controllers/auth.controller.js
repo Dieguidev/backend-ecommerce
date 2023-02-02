@@ -9,8 +9,8 @@ const register = async (req, res) => {
     const result = await AuthServices.register(user);
 
     if (result) {
-      const user_id = result.id
-      const newCart = { user_id }
+      // const user_id = result.id
+      const newCart = { user_id: result.id }
       await CartService.createdCart(newCart);
       res.status(201).json({ message: 'user created' });
       await transporter.sendMail({
