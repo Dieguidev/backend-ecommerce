@@ -31,8 +31,12 @@ class CartService {
             as: 'carts',
             include: {
               model: models.products_in_cart,
-              attributes: { exclude: ['cart_id'] },
-              as: 'products_in_carts'
+              attributes: { exclude: ['cart_id', "product_id" ] },
+              as: 'products_in_carts',
+              include: {
+                model: models.products,
+                as: 'product'
+              }
             }
           }
         },
