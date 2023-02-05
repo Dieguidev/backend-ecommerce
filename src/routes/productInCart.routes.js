@@ -7,15 +7,23 @@ const router = Router();
 
 /**
  * @openapi
- * /api/v1/productsincart:
+ * /api/v1/productsincart/add/{id}:
  *   post:
  *     security:
  *       - bearerAuth: [ ]
  *     summary: add product to cart
  *     tags:
- *       - Products
+ *       - Cart
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           minimun: 1
+ *         description: user id
  *     requestBody:
- *       description: Required fields to add product to cart
+ *       description: Required user id to add product to cart
  *       required: true
  *       content:
  *         application/json:
@@ -53,7 +61,7 @@ const router = Router();
  *       - bearerAuth: [ ]
  *     summary: get products in cart
  *     tags:
- *       - Products
+ *       - Cart
  *     parameters:
  *       - in: path
  *         name: id
@@ -103,7 +111,7 @@ const router = Router();
  *                   example: validation error
  */
 
-router.post('/', addProductToCart)
+router.post('/add/:id', addProductToCart)
 router.get('/:id', getProductsInCart)
 
 module.exports = router;

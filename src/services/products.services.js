@@ -35,6 +35,17 @@ class ProductsServices {
       throw error;
     }
   }
+
+  static async purchased(id) {
+    try {
+      const result = await models.products_in_cart.update({ purchase_completed: true }, {
+        where: { cart_id: id }
+      })
+      return result
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 module.exports = ProductsServices;

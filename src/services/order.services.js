@@ -14,7 +14,7 @@ class OrderService {
             as: 'orders',
             include: {
               model: models.product_in_order,
-              attributes: { exclude: ['cart_id', "product_id" ] },
+              attributes: { exclude: ['order_id', "product_id" ] },
               as: 'product_in_orders',
               include: {
                 model: models.products,
